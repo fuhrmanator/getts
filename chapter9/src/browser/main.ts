@@ -1,4 +1,7 @@
 import { Blockchain, Block } from '../lib/bc_transactions.js';
+import { Armor } from '../melee/armor.js';
+
+const armor = new Armor("Funky mail");
 
 enum Status {
   Initialization = '⏳ Initializing the blockchain, creating the genesis block...',
@@ -25,7 +28,8 @@ const transferBtn           = document.getElementById('transfer') as HTMLButtonE
 
   const blockchain = new Blockchain();
   await blockchain.createGenesisBlock();
-  blocksEl.innerHTML = blockchain.chain.map((b, i) => generateBlockHtml(b, i)).join('');
+//  blocksEl.innerHTML = blockchain.chain.map((b, i) => generateBlockHtml(b, i)).join('');
+  blocksEl.innerHTML = armor.name;
 
   statusEl.textContent = Status.AddTransaction;
   toggleState(true, false);
